@@ -3,7 +3,6 @@ data/
 *.npy
 
 # Ignore heavy model weights
-model/
 models/
 *.pth
 
