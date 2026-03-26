@@ -1,0 +1,12 @@
+# Ignore heavy data and arrays
+data/
+*.npy
+
+# Ignore heavy model weights
+model/
+models/
+*.pth
+
+# Ignore Python cache
+__pycache__/
+ecg_env/
