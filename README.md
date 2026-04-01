@@ -8,6 +8,7 @@ A medical-grade time-series analysis system designed to detect cardiac arrhythmi
 ## Key Results (Test Set)
 
 Our model was evaluated using a strict **patient-level split** to prevent data leakage and ensure true clinical validity. Using a highly penalized loss function to prioritize catching anomalies, the model achieved:
+
 **Release 1**
 - **ROC-AUC:** `0.9267`
 - **Precision:** `85.69%`
