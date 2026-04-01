@@ -8,10 +8,16 @@ A medical-grade time-series analysis system designed to detect cardiac arrhythmi
 ## Key Results (Test Set)
 
 Our model was evaluated using a strict **patient-level split** to prevent data leakage and ensure true clinical validity. Using a highly penalized loss function to prioritize catching anomalies, the model achieved:
-
+**Release 1**
 - **ROC-AUC:** `0.9267`
 - **Precision:** `85.69%`
 - **Recall (Sensitivity):** `73.29%`  
+  *(Note: Effective recall can be further optimized via the threshold slider in the web app)*
+
+**Release 2**
+- **ROC-AUC:** `0.9407`
+- **Precision:** `78.49%`
+- **Recall (Sensitivity):** `79.22%`  
   *(Note: Effective recall can be further optimized via the threshold slider in the web app)*
 
 ---
@@ -98,8 +104,11 @@ Output: `data/` folder with train/val/test `.npy` files + class distribution cha
 #### Step 2 — Train the model
 
 ```bash
-# Optimal settings for high Recall (Pos-Weight 4.0, LR 5e-4)
+# Release 1
 python train_evaluate.py --epochs 40 --batch 128 --lr 5e-4 --pos-weight 4.0
+
+# Release 2
+python train_evaluate.py --epochs 60 --batch 128 --lr 1e-4 --pos-weight 5.0
 ```
 
 Note on `--pos-weight`: This determines how much extra you penalize the model for missing a real arrhythmia. Higher = more sensitive model, more false alarms.
